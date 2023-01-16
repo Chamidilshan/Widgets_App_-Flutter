@@ -30,13 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +96,22 @@ class _MyHomePageState extends State<MyHomePage> {
                           onExpansionChanged: (isExpanded){
                             print('Expanded: $isExpanded');
                           },
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        CheckboxListTile(
+                          title: Text(
+                            'This app has more features'
+                          ),
+                          controlAffinity: ListTileControlAffinity.leading,
+                          value: isChecked, onChanged: (value){
+                          setState(() {
+                            isChecked = value!;
+                          });
+                        },
+                        activeColor: Colors.red,
+                          checkColor: Colors.white,
                         ),
                       ],
                     ),
