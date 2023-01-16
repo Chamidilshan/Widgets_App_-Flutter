@@ -45,21 +45,41 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Open Bottom Sheet'),
-          onPressed: () {
-            showModalBottomSheet(
-                context: context,
-                builder: (context) => Center(
-                  child: ElevatedButton(
-                    child: Text('Close'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: Text('Open Bottom Sheet'),
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(40.0),
+                        bottom: Radius.circular(40.0),
+                      )
+                    ),
+                    builder: (context) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('This is bottom sheet'),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Center(
+                          child: ElevatedButton(
+                            child: Text('Close'),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                );
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
