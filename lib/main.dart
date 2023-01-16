@@ -66,13 +66,42 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           height: 20.0,
                         ),
-                        Center(
-                          child: ElevatedButton(
-                            child: Text('Close'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
+                  Center(
+                    child: ElevatedButton(
+                      child: Text('Close'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        ExpansionTile(
+                          title: Text(
+                            'Android',
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
+                          children: [
+                            ListTile(title: Text('Java', style: TextStyle(fontSize: 10.0),),
+                              onTap: () {},
+                            ),
+                            ListTile(title: Text('Kotlin', style: TextStyle(fontSize: 10.0),),
+                              onTap: () {},
+                            ),
+                            ListTile(title: Text('Flutter', style: TextStyle(fontSize: 10.0),),
+                              onTap: () {},
+                            ),
+                            ListTile(title: Text('Kotlin', style: TextStyle(fontSize: 10.0),),
+                              onTap: () {},
+                            ),
+                          ],
+                          onExpansionChanged: (isExpanded){
+                            print('Expanded: $isExpanded');
+                          },
                         ),
                       ],
                     ),
@@ -81,11 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
