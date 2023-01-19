@@ -113,6 +113,45 @@ class _MyHomePageState extends State<MyHomePage> {
                         activeColor: Colors.red,
                           checkColor: Colors.white,
                         ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text(
+                                      'Welcome To Flutter'
+                                    ),
+                                    content: Text(
+                                      'Flutter is an open source UI toolkit for building beautiful, natively compiled applications for mobile, web, desktop, and embedded devices from a single codebase. Flutter is primarily funded by Google with contributors from all around the world.'
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                            'Cancel'
+                                        ),
+                                      ),
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                              'OK'
+                                          ),
+                                      ),
+                                    ],
+                                  ),
+                              );
+                            },
+                            child: Text(
+                              'Open Dialog'
+                            ),
+                        ),
                       ],
                     ),
                 );
