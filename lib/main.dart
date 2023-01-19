@@ -31,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isChecked = false;
+  List<String> items = ['Dart', 'Kotlin', 'Java'];
+  String? selectedItem = 'Dart';
 
   @override
   Widget build(BuildContext context) {
@@ -152,6 +154,16 @@ class _MyHomePageState extends State<MyHomePage> {
                               'Open Dialog'
                             ),
                         ),
+                        DropdownButton<String>(
+                          value: selectedItem,
+                            items: items.map((item) => DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(item),),
+                            ).toList(),
+                            onChanged: (item) => {
+                            setState(() => selectedItem = item)
+                            }
+                        )
                       ],
                     ),
                 );
