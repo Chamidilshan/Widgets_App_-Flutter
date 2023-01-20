@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -38,8 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.deepPurple,
         title: Text('Widgets App'),
+        centerTitle: true,
         leading: IconButton(
             icon: Icon(Icons.menu),
           onPressed: () {},
@@ -58,6 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.notifications_active),
             onPressed: () {},
           ),
+        ],
+      ),
+      backgroundColor: Colors.deepPurple,
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.deepPurple,
+        color: Colors.deepPurple.shade200,
+        animationDuration: Duration(microseconds: 300),
+        onTap: (index) {
+          print(index);
+        },
+        items: [
+          Icon(Icons.home),
+          Icon(Icons.favorite),
+          Icon(Icons.settings)
         ],
       ),
       body: SafeArea(
